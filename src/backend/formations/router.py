@@ -5,7 +5,7 @@ from sqlalchemy import select
 from backend.database import get_session
 from .models import Formation
 from .schemas import FormationCreate, FormationResponse, FormationUpdate
-from backend.auth.router import get_current_user
+from backend.auth.services import get_current_user
 
 
 router=APIRouter(prefix="/formations", tags=["formations"])
