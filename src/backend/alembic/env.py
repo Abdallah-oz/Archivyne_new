@@ -2,7 +2,8 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-
+from backend.projects.models import Project
+from backend.formations.models import Formation
 from alembic import context
 from backend.database import Base
 from backend.projects.models import Project
@@ -20,7 +21,12 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
+import os
 
+config.set_main_option(
+    "sqlalchemy.url",
+    os.getenv("DATABASE_URL", "sqlite:///./archivyne.db").replace("+asyncpg", "")
+)
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
