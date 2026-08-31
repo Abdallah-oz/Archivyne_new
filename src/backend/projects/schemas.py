@@ -1,11 +1,11 @@
 from pydantic import BaseModel
-
+from .models import Category
 
 class ProjectCreate(BaseModel):
     title: str
     place:str
     type:str
-    category:str
+    category: Category
 
 
 class ProjectResponse(BaseModel):
@@ -13,7 +13,7 @@ class ProjectResponse(BaseModel):
     title: str
     place:str
     type:str
-    category:str
+    category:Category
     
     class Config:
         from_attributes = True
