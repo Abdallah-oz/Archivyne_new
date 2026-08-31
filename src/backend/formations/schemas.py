@@ -1,9 +1,10 @@
 from pydantic import BaseModel
+from .models import LevelChoices
 
 
 class FormationCreate(BaseModel):
     title: str
-    level: str
+    level: LevelChoices
     duration: str
     payante: bool
 
