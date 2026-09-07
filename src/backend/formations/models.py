@@ -1,3 +1,4 @@
+from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 from backend.database import Base
 
@@ -16,3 +17,4 @@ class Formation(Base):
     level: Mapped[LevelChoices] = mapped_column()
     duration: Mapped[str] = mapped_column()
     payante: Mapped[bool] = mapped_column()
+    link: Mapped[str | None] = mapped_column(String, nullable=True)

@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from .models import Category
 
 class ProjectCreate(BaseModel):
@@ -6,6 +6,7 @@ class ProjectCreate(BaseModel):
     place:str
     type:str
     category: Category
+    photos: list[str] = Field(default_factory=list)
 
 
 class ProjectResponse(BaseModel):
@@ -14,6 +15,7 @@ class ProjectResponse(BaseModel):
     place:str
     type:str
     category:Category
+    photos: list[str]
     
     class Config:
         from_attributes = True

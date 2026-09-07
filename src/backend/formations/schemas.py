@@ -7,6 +7,7 @@ class FormationCreate(BaseModel):
     level: LevelChoices
     duration: str
     payante: bool
+    link: str | None = None
 
 class FormationResponse(FormationCreate):
     id: int
@@ -19,3 +20,4 @@ class FormationUpdate(BaseModel):
     level: str | None = None
     duration: str | None = None
     payante: bool | None = None
+    link: str | None = None
