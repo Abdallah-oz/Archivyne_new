@@ -14,7 +14,7 @@ class Formation(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     title: Mapped[str] = mapped_column(index=True)
-    level: Mapped[LevelChoices] = mapped_column()
+    level: Mapped[str] = mapped_column(String)
     duration: Mapped[str] = mapped_column()
     payante: Mapped[bool] = mapped_column()
     link: Mapped[str | None] = mapped_column(String, nullable=True)
